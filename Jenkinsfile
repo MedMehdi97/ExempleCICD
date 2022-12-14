@@ -14,7 +14,9 @@ pipeline {
         }
         stage('Quality'){
             steps {
-                bat "mvn clean verify sonar:sonar -Dsonar.login=SONAR_KEY"
+                withSonarQubeEnv(installationName: 'sq1') {
+                          bat './mvnw clean varify sonar:sonar'
+                }
             }
         }
         stage('Package') {
