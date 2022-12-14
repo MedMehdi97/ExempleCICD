@@ -12,9 +12,10 @@ pipeline {
                 bat "mvn test"
             }
         }
-        stage('Deploy') {
+        stage('Package') {
             steps {
-                echo 'Deploying....'
+                bat "mvn package"
+                bat "docker build -t exemplecicd ."
             }
         }
     }
