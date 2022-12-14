@@ -14,8 +14,8 @@ pipeline {
         }
         stage('Quality'){
             steps {
-                withSonarQubeEnv(installationName: 'sq1') {
-                          bat './mvnw clean varify sonar:sonar'
+                withSonarQubeEnv(installationName: 'SonarQ1') {
+                          bat './mvnw clean verify sonar:sonar'
                 }
             }
         }
